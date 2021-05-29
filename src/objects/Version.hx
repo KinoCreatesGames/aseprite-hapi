@@ -6,6 +6,13 @@ package objects;
 @:native('Version')
 extern class Version {
 	/**
+	 * Creates a new version object.
+	 * @param versionString 
+	 */
+	@:selfCall
+	public function new(versionString:String);
+
+	/**
 	 * Major version of the string.
 	 */
 	public var major:Int;
