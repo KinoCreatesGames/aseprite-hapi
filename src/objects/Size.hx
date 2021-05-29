@@ -17,15 +17,10 @@ extern class Size {
 
 	/**
 	 * Creates a new size based on the width, height. 
+	    * Overload creates a new size based on size.
 	 * @param width 
 	 * @param height 
 	 */
-	public function new(width:Int, height:Int):Size;
-
-	/**
-	 * Creates a size based on the size.
-	 * @param size 
-	 * @return Size
-	 */
-	public function newWidthSize(size:Size):Size;
+	@:overload(function(size:Size):Size {})
+	public function new(width:Int = 0, height:Int = 0);
 }

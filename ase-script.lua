@@ -535,8 +535,11 @@ end
 ___Main_Main_Fields_.new = {}
 ___Main_Main_Fields_.main = function() 
   local point = Point(10, 10);
-  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=5,className="_Main.Main_Fields_",methodName="main"}));
-  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=6,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
+  local selection = Selection(Rectangle(0, 0, 32, 32));
+  selection:contains(0, 0);
+  selection:contains(point);
+  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=10,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=11,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
 end
 
 Math.new = {}

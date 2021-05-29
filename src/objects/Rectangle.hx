@@ -16,7 +16,7 @@ extern class Rectangle {
 	public var isEmpty:Bool;
 
 	@:selfCall
-	public function new(x:Int, y:Int, width:Int, height:Int);
+	public function new(x:Int = 0, y:Int = 0, width:Int = 0, height:Int = 0);
 
 	/**
 	 * Returns true if the other rectangle is within this rectangle.
