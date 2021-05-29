@@ -1,0 +1,13 @@
+{
+  "name": "Aseprite-Api",
+  "url" : "https://github.com/jasononeil/useless/",
+  "license": "MIT",
+  "tags": ["Ase", "Aseprite", "pixelart", "gamedev"],
+  "description": "A library for creating aseprite scripts in Haxe",
+  "version": "0.0.1",
+  "classPath": "src/",
+  "releasenote": "Initial release, for Aseprite",
+  "contributors": ["Kino"],
+  "dependencies": {
+  }
+}

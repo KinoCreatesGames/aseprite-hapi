@@ -1,0 +1,7 @@
+# Used for testing the scripts written in Aseprite
+-cp src
+--main Main
+
+-D lua-ver
+--dce full
+--lua ase-script.lua
