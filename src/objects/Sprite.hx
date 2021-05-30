@@ -1,5 +1,7 @@
 package objects;
 
+import Structs.SpriteT;
+import Structs.SetPalleteT;
 import constants.ColorMode;
 
 /**
@@ -110,6 +112,11 @@ extern class Sprite {
 	 */
 	public var transparentColor:Int;
 
+	@:overload(function(spriteT:SpriteT):Sprite {})
+	@:overload(function(spec:ImageSpec):Sprite {})
+	@:overload(function(spr:Sprite):Sprite {})
+	public function new(width:Int, height:Int, ?colorMode:CMode);
+
 	/**
 	 * Resizes the sprite and all frames / cels to the
 	 		* given dimensions.
@@ -155,6 +162,7 @@ extern class Sprite {
 	 * Sets the palette of the sprite.
 	 * @param palette 
 	 */
+	@:overload(function(paletteT:SetPalleteT):Void {})
 	public function setPalette(palette:Palette):Void;
 
 	public function assignColorSpace(colorSpace:ColorSpace):Void;

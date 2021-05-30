@@ -2,6 +2,6 @@
 -cp src
 --main Main
 
--D lua-ver
---dce full
+-D lua-vanilla
+# --dce full
 --lua ase-script.lua

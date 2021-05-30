@@ -1,5 +1,7 @@
 package objects;
 
+import Structs.ColorSpaceT;
+
 /**
  * Represents the color space/profile of a sprite, iamge
  * or image spec.
@@ -15,6 +17,5 @@ extern class ColorSpace {
 	 * Defines the color space either through a file or 
 	 		* a whether it's sRGB for the color space.
 	 */
-	@:overload(function(fromFile:String):ColorSpace {})
-	public function new(?sRGB:Bool);
+	public function new(colorSpaceT:ColorSpaceT);
 }

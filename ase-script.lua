@@ -196,14 +196,15 @@ local Class = _hx_e();
 local Enum = _hx_e();
 
 local Array = _hx_e()
-__lua_lib_luautf8_Utf8 = _G.require("lua-utf8")
 ___Main_Main_Fields_ = _hx_e()
 local Math = _hx_e()
+local Reflect = _hx_e()
 local String = _hx_e()
 local Std = _hx_e()
 __haxe_Log = _hx_e()
 __haxe_iterators_ArrayIterator = _hx_e()
 __haxe_iterators_ArrayKeyValueIterator = _hx_e()
+local Brush = _hx_e()
 
 local _hx_bind, _hx_bit, _hx_staticToInstance, _hx_funcToField, _hx_maxn, _hx_print, _hx_apply_self, _hx_box_mr, _hx_bit_clamp, _hx_table, _hx_bit_raw
 local _hx_pcall_default = {};
@@ -538,8 +539,12 @@ ___Main_Main_Fields_.main = function()
   local selection = Selection(Rectangle(0, 0, 32, 32));
   selection:contains(0, 0);
   selection:contains(point);
-  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=10,className="_Main.Main_Fields_",methodName="main"}));
-  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=11,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
+  local color = app.pixelColor.graya(255, 255);
+  local test = Reflect.field(app.params, "k");
+  app.alert(_hx_o({__fields__={title=true,text=true},title="Warning",text="Save Changes?"}));
+  __haxe_Log.trace(color, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=14,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=15,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=16,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
 end
 
 Math.new = {}
@@ -561,6 +566,30 @@ Math.min = function(a,b)
   end;
 end
 
+Reflect.new = {}
+Reflect.field = function(o,field) 
+  if (_G.type(o) == "string") then 
+    if (field == "length") then 
+      do return _hx_wrap_if_string_field(o,'length') end;
+    else
+      do return String.prototype[field] end;
+    end;
+  else
+    local _hx_status, _hx_result = pcall(function() 
+    
+        do return o[field] end;
+      return _hx_pcall_default
+    end)
+    if not _hx_status and _hx_result == "_hx_pcall_break" then
+    elseif not _hx_status then 
+      local _g = _hx_result;
+      do return nil end;
+    elseif _hx_result ~= _hx_pcall_default then
+      return _hx_result
+    end;
+  end;
+end
+
 String.new = function(string) 
   local self = _hx_new(String.prototype)
   String.super(self,string)
@@ -571,7 +600,7 @@ String.super = function(self,string)
 end
 String.__index = function(s,k) 
   if (k == "length") then 
-    do return __lua_lib_luautf8_Utf8.len(s) end;
+    do return _G.string.len(s) end;
   else
     local o = String.prototype;
     local field = k;
@@ -601,7 +630,7 @@ String.__index = function(s,k)
   end;
 end
 String.indexOfEmpty = function(s,startIndex) 
-  local length = __lua_lib_luautf8_Utf8.len(s);
+  local length = _G.string.len(s);
   if (startIndex < 0) then 
     startIndex = length + startIndex;
     if (startIndex < 0) then 
@@ -615,14 +644,14 @@ String.indexOfEmpty = function(s,startIndex)
   end;
 end
 String.fromCharCode = function(code) 
-  do return __lua_lib_luautf8_Utf8.char(code) end;
+  do return _G.string.char(code) end;
 end
 String.prototype = _hx_e();
 String.prototype.toUpperCase = function(self) 
-  do return __lua_lib_luautf8_Utf8.upper(self) end
+  do return _G.string.upper(self) end
 end
 String.prototype.toLowerCase = function(self) 
-  do return __lua_lib_luautf8_Utf8.lower(self) end
+  do return _G.string.lower(self) end
 end
 String.prototype.indexOf = function(self,str,startIndex) 
   if (startIndex == nil) then 
@@ -633,7 +662,7 @@ String.prototype.indexOf = function(self,str,startIndex)
   if (str == "") then 
     do return String.indexOfEmpty(self, startIndex - 1) end;
   end;
-  local r = __lua_lib_luautf8_Utf8.find(self, str, startIndex, true);
+  local r = _G.string.find(self, str, startIndex, true);
   if ((r ~= nil) and (r > 0)) then 
     do return r - 1 end;
   else
@@ -643,7 +672,7 @@ end
 String.prototype.lastIndexOf = function(self,str,startIndex) 
   local ret = -1;
   if (startIndex == nil) then 
-    startIndex = __lua_lib_luautf8_Utf8.len(self);
+    startIndex = #self;
   end;
   while (true) do 
     local startIndex1 = ret + 1;
@@ -656,7 +685,7 @@ String.prototype.lastIndexOf = function(self,str,startIndex)
     if (str == "") then 
       p = String.indexOfEmpty(self, startIndex1 - 1);
     else
-      local r = __lua_lib_luautf8_Utf8.find(self, str, startIndex1, true);
+      local r = _G.string.find(self, str, startIndex1, true);
       p = (function() 
         local _hx_1
         if ((r ~= nil) and (r > 0)) then 
@@ -677,21 +706,21 @@ String.prototype.split = function(self,delimiter)
   local ret = _hx_tab_array({}, 0);
   while (idx ~= nil) do 
     local newidx = 0;
-    if (__lua_lib_luautf8_Utf8.len(delimiter) > 0) then 
-      newidx = __lua_lib_luautf8_Utf8.find(self, delimiter, idx, true);
+    if (#delimiter > 0) then 
+      newidx = _G.string.find(self, delimiter, idx, true);
     else
-      if (idx >= __lua_lib_luautf8_Utf8.len(self)) then 
+      if (idx >= #self) then 
         newidx = nil;
       else
         newidx = idx + 1;
       end;
     end;
     if (newidx ~= nil) then 
-      local match = __lua_lib_luautf8_Utf8.sub(self, idx, newidx - 1);
+      local match = _G.string.sub(self, idx, newidx - 1);
       ret:push(match);
-      idx = newidx + __lua_lib_luautf8_Utf8.len(delimiter);
+      idx = newidx + #delimiter;
     else
-      ret:push(__lua_lib_luautf8_Utf8.sub(self, idx, __lua_lib_luautf8_Utf8.len(self)));
+      ret:push(_G.string.sub(self, idx, #self));
       idx = nil;
     end;
   end;
@@ -702,7 +731,7 @@ String.prototype.toString = function(self)
 end
 String.prototype.substring = function(self,startIndex,endIndex) 
   if (endIndex == nil) then 
-    endIndex = __lua_lib_luautf8_Utf8.len(self);
+    endIndex = #self;
   end;
   if (endIndex < 0) then 
     endIndex = 0;
@@ -711,32 +740,32 @@ String.prototype.substring = function(self,startIndex,endIndex)
     startIndex = 0;
   end;
   if (endIndex < startIndex) then 
-    do return __lua_lib_luautf8_Utf8.sub(self, endIndex + 1, startIndex) end;
+    do return _G.string.sub(self, endIndex + 1, startIndex) end;
   else
-    do return __lua_lib_luautf8_Utf8.sub(self, startIndex + 1, endIndex) end;
+    do return _G.string.sub(self, startIndex + 1, endIndex) end;
   end;
 end
 String.prototype.charAt = function(self,index) 
-  do return __lua_lib_luautf8_Utf8.sub(self, index + 1, index + 1) end
+  do return _G.string.sub(self, index + 1, index + 1) end
 end
 String.prototype.charCodeAt = function(self,index) 
-  do return __lua_lib_luautf8_Utf8.byte(self, index + 1) end
+  do return _G.string.byte(self, index + 1) end
 end
 String.prototype.substr = function(self,pos,len) 
-  if ((len == nil) or (len > (pos + __lua_lib_luautf8_Utf8.len(self)))) then 
-    len = __lua_lib_luautf8_Utf8.len(self);
+  if ((len == nil) or (len > (pos + #self))) then 
+    len = #self;
   else
     if (len < 0) then 
-      len = __lua_lib_luautf8_Utf8.len(self) + len;
+      len = #self + len;
     end;
   end;
   if (pos < 0) then 
-    pos = __lua_lib_luautf8_Utf8.len(self) + pos;
+    pos = #self + pos;
   end;
   if (pos < 0) then 
     pos = 0;
   end;
-  do return __lua_lib_luautf8_Utf8.sub(self, pos + 1, pos + len) end
+  do return _G.string.sub(self, pos + 1, pos + len) end
 end
 
 Std.new = {}
@@ -805,6 +834,8 @@ end
 __haxe_iterators_ArrayKeyValueIterator.super = function(self,array) 
   self.array = array;
 end
+
+Brush.new = {}
 if _hx_bit_raw then
     _hx_bit_clamp = function(v)
     if v <= 2147483647 and v >= -2147483648 then
@@ -839,6 +870,18 @@ local _hx_static_init = function()
 end
 
 _hx_print = print or (function() end)
+
+_hx_wrap_if_string_field = function(o, fld)
+  if _G.type(o) == 'string' then
+    if fld == 'length' then
+      return _G.string.len(o)
+    else
+      return String.prototype[fld]
+    end
+  else
+    return o[fld]
+  end
+end
 
 _hx_static_init();
 _G.xpcall(___Main_Main_Fields_.main, _hx_error)

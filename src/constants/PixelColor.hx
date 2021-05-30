@@ -8,6 +8,7 @@ typedef IntColor = Int;
 
 /**
  * PixelColor namespace. 
+ * Static extern class.
  */
 @:native('PixelColor')
 extern class PixelColor {
@@ -20,35 +21,40 @@ extern class PixelColor {
 	 * @param a 
 	 * @return IntColor
 	 */
-	public static function rgba(r:Int, g:Int, b:Int, ?a:Int):IntColor;
+	@:luaDotMethod
+	public function rgba(r:Int, g:Int, b:Int, ?a:Int):IntColor;
 
 	/**
 	 * Returns the red component of the 32-bit integer.
 	 * @param rgbaPixel 
 	 * @return IntColor
 	 */
-	public static function rgbaR(rgbaPixel:IntColor):IntColor;
+	@:luaDotMethod
+	public function rgbaR(rgbaPixel:IntColor):IntColor;
 
 	/**
 	 * Returns the green component of the 32-bit integer.
 	 * @param rgbaPixel 
 	 * @return IntColor
 	 */
-	public static function rgbaG(rgbaPixel:IntColor):IntColor;
+	@:luaDotMethod
+	public function rgbaG(rgbaPixel:IntColor):IntColor;
 
 	/**
 	 * Returns the blue component of the 32-bit integer.
 	 * @param rgbaPixel 
 	 * @return IntColor
 	 */
-	public static function rgbaB(rgbaPixel:IntColor):IntColor;
+	@:luaDotMethod
+	public function rgbaB(rgbaPixel:IntColor):IntColor;
 
 	/**
 	 * Returns the Alpha component of the 32 bit integer.
 	 * @param rgbaPixel 
 	 * @return IntColor
 	 */
-	public static function rgbaA(rgbaPixel:IntColor):IntColor;
+	@:luaDotMethod
+	public function rgbaA(rgbaPixel:IntColor):IntColor;
 
 	/**
 	 * Constructs a 16-bit unsigned integer grayscale.
@@ -57,19 +63,22 @@ extern class PixelColor {
 	 * @param alpha 
 	 * @return IntColor
 	 */
-	public static function graya(gray:Int, alpha:Int):IntColor;
+	@:luaDotMethod
+	public function graya(gray:Int, alpha:Int):IntColor;
 
 	/**
 	 * Returns the gray component of the given 16-bit integer.
 	 * @param grayPixelValue 
 	 * @return IntColor
 	 */
-	public static function grayaV(grayPixelValue:IntColor):IntColor;
+	@:luaDotMethod
+	public function grayaV(grayPixelValue:IntColor):IntColor;
 
 	/**
 	 * Returns the alpha component of the given 16-bit integer.
 	 * @param grayPixelValue 
 	 * @return IntColor
 	 */
-	public static function grayaA(grayPixelValue:IntColor):IntColor;
+	@:luaDotMethod
+	public function grayaA(grayPixelValue:IntColor):IntColor;
 }
