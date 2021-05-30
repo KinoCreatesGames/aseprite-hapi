@@ -134,7 +134,7 @@ extern class Dialog {
 	 * @param onClick 
 	 */
 	public function shades(id:String, label:String, mode:String,
-		colors:Array<Colors>, onClick:DialogEvent -> Void):Void;
+		colors:Array<Color>, onClick:DialogEvent -> Void):Void;
 
 	/**
 	 * Creates a new label.
