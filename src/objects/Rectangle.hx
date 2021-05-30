@@ -1,5 +1,7 @@
 package objects;
 
+import Structs;
+
 /**
  * Rectangle class.
  */
@@ -16,6 +18,8 @@ extern class Rectangle {
 	public var isEmpty:Bool;
 
 	@:selfCall
+	@:overload(function(rectT:RectT):Rectangle {})
+	@:overload(function(rect:Rectangle):Rectangle {})
 	public function new(x:Int = 0, y:Int = 0, width:Int = 0, height:Int = 0);
 
 	/**

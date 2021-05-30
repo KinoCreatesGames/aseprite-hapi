@@ -163,3 +163,10 @@ typedef ImgResizeT = {
 	?method:String,
 	?pivot:Point
 }
+
+typedef RectT = {
+	x:Int,
+	y:Int,
+	width:Int,
+	height:Int
+}
