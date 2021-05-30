@@ -41,3 +41,114 @@ typedef SpriteT = {
 	fromFile:String,
 	?oneFrame:Frame
 }
+
+// Dialog Table Types
+typedef DiaT = {
+	title:String,
+	?onClose:Dialog -> Void
+}
+
+typedef NumberT = {
+	id:String,
+	label:String,
+	text:String,
+	decimals:Int
+}
+
+typedef NewRowT = {
+	/**
+	 * Always True by default
+	 */
+	always:Bool
+}
+
+typedef ShadesT = {
+	id:String,
+	label:String,
+	mode:String,
+	colors:Array<Color>,
+	onClick:DialogEvent -> Void
+}
+
+typedef ComboBoxT = {
+	id:String,
+	label:String,
+	option:String,
+	options:Array<String>
+}
+
+typedef EntryT = {
+	id:String,
+	label:String,
+	text:String,
+	focus:Bool
+}
+
+typedef LabelT = {
+	id:String,
+	label:String,
+	text:String
+}
+
+typedef ModifyT = {
+	id:String,
+	visible:Bool,
+	enabled:Bool,
+	text:String
+}
+
+typedef ButtonT = {
+	id:String,
+	label:String,
+	text:String,
+	selected:Bool,
+	focus:Bool,
+	?onClick:Void -> Void
+}
+
+typedef ColorT = {
+	id:String,
+	label:String,
+	color:Color
+}
+
+typedef ShowT = {
+	/**
+	 * Defaults to true
+	 */
+	wait:Bool,
+
+	bounds:Rectangle
+}
+
+typedef SliderT = {
+	id:String,
+	label:String,
+	min:Int,
+	max:Int,
+	value:Int
+}
+
+typedef FileT = {
+	id:String,
+	label:String,
+	title:String,
+	open:Bool,
+	save:Bool,
+	fileName:EitherType<String, Array<String>>,
+	fileTypes:Array<String>,
+	onChange:Void -> Void
+}
+
+typedef ImgSaveAsT = {
+	filename:String,
+	palette:Palette
+}
+
+typedef ImgResizeT = {
+	width:Int,
+	height:Int,
+	?size:Size,
+	?method:String,
+	?pivot:Point
+}

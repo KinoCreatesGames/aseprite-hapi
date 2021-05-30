@@ -13,6 +13,16 @@ typedef IntColor = Int;
 @:native('PixelColor')
 extern class PixelColor {
 	/**
+	 * X Position
+	 */
+	public var x:Int;
+
+	/**
+	 * Y Position
+	 */
+	public var y:Int;
+
+	/**
 	 * Constructs a 32-bit unsigned integer for RGBA.
 	 * 0-255 for each integer.
 	 * @param r 

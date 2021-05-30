@@ -1,5 +1,7 @@
 package objects;
 
+import Structs;
+
 /**
  * Dialog class is used to show input controls/widgets on the screen
  * to get some data from the user.
@@ -23,21 +25,19 @@ extern class Dialog {
 	 * Creates a new dialog. Dialog is hidden;
 	 * You have to call `Dialog.show` to make it visible.
 	 */
-	@:overload(function(title:String, ?onClose:Dialog -> Void):Dialog {})
-	public function new();
+	@:overload(function(diaT:DiaT):Dialog {})
+	public function new(?title:String);
 
 	/**
 	 * Creates a button within the dialog.
 	 */
-	public function button(id:String, label:String, text:String,
-		selected:Bool, focus:Bool, onClick:Void -> Void):Void;
+	public function button(buttonT:ButtonT):Dialog;
 
 	/**
 	 * Creates a check box.
 	 		* Similar to the button.
 	 */
-	public function check(id:String, label:String, text:String, selected:Bool,
-		focus:Bool, onClick:Void -> Void):Void;
+	public function check(buttonT:ButtonT):Dialog;
 
 	/**
 	 * Closes the dialog from the onclick button.
@@ -45,7 +45,14 @@ extern class Dialog {
 	 * will close the dialog, but if you specify a onClick,
 	 * you have to call this function to close the dialog.
 	 */
-	public function close():Void;
+	public function close():Dialog;
+
+	/**
+	 * Creates a combo/drop-down list
+	 * @param comboBoxT 
+	 * @return Dialog
+	 */
+	public function combobox(comboBoxT:ComboBoxT):Dialog;
 
 	/**
 	 * Creates a button to select a color.
@@ -53,7 +60,7 @@ extern class Dialog {
 	 * @param label 
 	 * @param color 
 	 */
-	public function color(id:String, label:String, color:Color):Void;
+	public function color(colorT:ColorT):Dialog;
 
 	/**
 	 * Shows the dialog box on screen.
@@ -62,7 +69,7 @@ extern class Dialog {
 	 		* @param bounds allows you to display the dialog at a 
 	 		* certain point on the screen.
 	 */
-	public function show(?wait:Bool = false, ?bounds:Rectangle):Void;
+	public function show(?showT:ShowT):Dialog;
 
 	/**
 	 * Creates a text entry in the dialog.
@@ -71,8 +78,7 @@ extern class Dialog {
 	 * @param text 
 	 * @param focus 
 	 */
-	public function entry(id:String, label:String, text:String,
-		focus:Bool):Void;
+	public function entry(entryT:EntryT):Dialog;
 
 	/**
 	 * Modifies the properties of the given widget that matches the identifier.
@@ -81,16 +87,15 @@ extern class Dialog {
 	 * @param enabled 
 	 * @param text 
 	 */
-	public function modify(id:String, visible:Bool, enabled:Bool,
-		text:String):Void;
+	public function modify(modifyT:ModifyT):Dialog;
 
 	/**
 	 * Creates a new row in the dialogue.
 	 		* The next widget should be put in the new row.
-	 		* Using the always = true, avoids joining widgets of the same type.
+	 		* Using the always = true, aDialogs joining widgets of the same type.
 	 */
-	@:overload(function(always:Bool = true):Void {})
-	public function newrow():Void;
+	@:overload(function(newRowT:NewRowT):Dialog {})
+	public function newrow():Dialog;
 
 	/**
 	 * Creates a new entry field for entering numbers.
@@ -99,8 +104,7 @@ extern class Dialog {
 	 * @param text 
 	 * @param decimals 
 	 */
-	public function number(id:String, label:String, text:String,
-		decimals:Int):Void;
+	public function number(numberT:NumberT):Dialog;
 
 	/**
 	 * Creates a radio button in the dialog window.
@@ -111,8 +115,7 @@ extern class Dialog {
 	 * @param selected 
 	 * @param onClick 
 	 */
-	public function radio(id:String, label:String, text:String, selected:Bool,
-		onClick:Void -> Void):Void;
+	public function radio(radioT:ButtonT):Dialog;
 
 	/**
 	 * Creates a new separator in the dialog window.
@@ -120,7 +123,7 @@ extern class Dialog {
 	 * @param label 
 	 * @param text 
 	 */
-	public function separator(id:String, label:String, text:String):Void;
+	public function separator(sepT:LabelT):Dialog;
 
 	/**
 	 * Creates a widget with a set of colors that can be clicked/picked, 
@@ -133,8 +136,7 @@ extern class Dialog {
 	 * @param colors 
 	 * @param onClick 
 	 */
-	public function shades(id:String, label:String, mode:String,
-		colors:Array<Color>, onClick:DialogEvent -> Void):Void;
+	public function shades(shadesT:ShadesT):Dialog;
 
 	/**
 	 * Creates a new label.
@@ -144,7 +146,7 @@ extern class Dialog {
 	 * @param label 
 	 * @param text 
 	 */
-	public function label(id:String, label:String, text:String):Void;
+	public function label(labelT:LabelT):Dialog;
 
 	/**
 	 * Creates a slider in the dialog box.
@@ -155,8 +157,7 @@ extern class Dialog {
 	 * @param max 
 	 * @param value 
 	 */
-	public function slider(id:String, label:String, min:Int, max:Int,
-		value:Int):Void;
+	public function slider(sliderT:SliderT):Dialog;
 
 	/**
 	 * Creates a text field plus a button to select one file to open 
@@ -173,7 +174,5 @@ extern class Dialog {
 	 * @param fileTypes 
 	 * @param onChange 
 	 */
-	public function file(id:String, label:String, title:String,
-		open:Bool = true, save:Bool, fileName:String, fileTypes:Array<String>,
-		onChange:Void -> Void):Void;
+	public function file(fileT:FileT):Dialog;
 }
