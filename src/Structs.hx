@@ -1,3 +1,4 @@
+import constants.BrushPattern;
 import constants.MouseButton;
 import constants.Ink;
 import objects.*;
@@ -53,6 +54,16 @@ typedef NumberT = {
 	label:String,
 	text:String,
 	decimals:Int
+}
+
+typedef BrushT = {
+	type:BrushT,
+	size:Int,
+	?angle:Int,
+	?center:Point,
+	?image:Image,
+	?pattern:BrushPattern,
+	?patternOrigin:Point,
 }
 
 typedef NewRowT = {

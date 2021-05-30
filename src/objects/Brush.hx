@@ -10,7 +10,7 @@ import constants.BrushType.BrushT;
  * ```
  */
 @:native('Brush')
-class Brush {
+extern class Brush {
 	/**
 	 * Type of the brush.
 	 		* CIRCLE
@@ -49,4 +49,8 @@ class Brush {
 	 * Origin of the pattern of the brush
 	 */
 	public var patternOrigin:Point;
+
+	@:overload(function(brushT:BrushT):Brush {})
+	@:overload(function(image:Image):Brush {})
+	public function new(?size:Size);
 }
