@@ -204,7 +204,6 @@ local Std = _hx_e()
 __haxe_Log = _hx_e()
 __haxe_iterators_ArrayIterator = _hx_e()
 __haxe_iterators_ArrayKeyValueIterator = _hx_e()
-local Brush = _hx_e()
 
 local _hx_bind, _hx_bit, _hx_staticToInstance, _hx_funcToField, _hx_maxn, _hx_print, _hx_apply_self, _hx_box_mr, _hx_bit_clamp, _hx_table, _hx_bit_raw
 local _hx_pcall_default = {};
@@ -536,15 +535,13 @@ end
 ___Main_Main_Fields_.new = {}
 ___Main_Main_Fields_.main = function() 
   local point = Point(10, 10);
-  local selection = Selection(Rectangle(0, 0, 32, 32));
-  selection:contains(0, 0);
-  selection:contains(point);
-  local color = app.pixelColor.graya(255, 255);
+  local color = app.pixelColor.rgba(255, 255, 0, 255);
   local test = Reflect.field(app.params, "k");
-  app.alert(_hx_o({__fields__={title=true,text=true},title="Warning",text="Save Changes?"}));
-  __haxe_Log.trace(color, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=14,className="_Main.Main_Fields_",methodName="main"}));
-  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=15,className="_Main.Main_Fields_",methodName="main"}));
-  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=16,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
+  app.alert(_hx_o({__fields__={title=true,text=true},title="Haxe Warning",text="This is a warning from Haxe"}));
+  __haxe_Log.trace(test, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=12,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(color, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=13,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=14,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=15,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
 end
 
 Math.new = {}
@@ -834,8 +831,6 @@ end
 __haxe_iterators_ArrayKeyValueIterator.super = function(self,array) 
   self.array = array;
 end
-
-Brush.new = {}
 if _hx_bit_raw then
     _hx_bit_clamp = function(v)
     if v <= 2147483647 and v >= -2147483648 then
