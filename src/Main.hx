@@ -9,6 +9,7 @@ function main() {
 		title: 'Haxe Warning',
 		text: 'This is a warning from Haxe',
 	});
+	App.command.ExportSpriteSheet();
 	trace(test);
 	trace(color);
 	trace(point);

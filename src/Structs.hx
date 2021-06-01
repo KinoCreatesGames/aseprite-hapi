@@ -170,3 +170,15 @@ typedef RectT = {
 	width:Int,
 	height:Int
 }
+
+// Command Structs
+
+typedef ChangeBrushT = {
+	change:String,
+	slot:Int
+}
+
+typedef ChangeColorT = {
+	target:String,
+	change:String
+}

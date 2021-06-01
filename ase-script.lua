@@ -538,10 +538,11 @@ ___Main_Main_Fields_.main = function()
   local color = app.pixelColor.rgba(255, 255, 0, 255);
   local test = Reflect.field(app.params, "k");
   app.alert(_hx_o({__fields__={title=true,text=true},title="Haxe Warning",text="This is a warning from Haxe"}));
-  __haxe_Log.trace(test, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=12,className="_Main.Main_Fields_",methodName="main"}));
-  __haxe_Log.trace(color, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=13,className="_Main.Main_Fields_",methodName="main"}));
-  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=14,className="_Main.Main_Fields_",methodName="main"}));
-  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=15,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
+  app.command.ExportSpriteSheet();
+  __haxe_Log.trace(test, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=13,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(color, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=14,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(point, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true},fileName="src/Main.hx",lineNumber=15,className="_Main.Main_Fields_",methodName="main"}));
+  __haxe_Log.trace(point.x, _hx_o({__fields__={fileName=true,lineNumber=true,className=true,methodName=true,customParams=true},fileName="src/Main.hx",lineNumber=16,className="_Main.Main_Fields_",methodName="main",customParams=_hx_tab_array({[0]=point.y}, 1)}));
 end
 
 Math.new = {}

@@ -1,6 +1,10 @@
 package buildMacros;
 
+import sys.FileSystem;
 #if macro
+import Structs.ChangeColorT;
+import Structs.ChangeBrushT;
+import haxe.macro.ExprTools;
 import haxe.macro.Expr.Field;
 import haxe.macro.Context;
 import haxe.macro.Expr;
@@ -22,6 +26,10 @@ import sys.io.File;
 inline var FILE_PATH = 'aseprite-gui-link.txt';
 
 #if macro
+inline function toComplex(e:Expr) {
+	return Context.toComplexType(Context.typeof(e));
+}
+
 macro function buildAppComands():Array<Field> {
 	var buildFields = Context.getBuildFields();
 	trace('Running macro');
@@ -38,17 +46,66 @@ macro function buildAppComands():Array<Field> {
 		if (command.exists('command') && !buildFields.exists((field) -> {
 			return field.name == command.get('command');
 		})) {
+			// Switch Case to determine struct to use as args
+			var args = [];
+			var documentation = null;
+			documentation = FileSystem.exists('res/${command.get('command')}.hx') ? File.getContent('res/${command.get('command')}.hx') : File.getContent('res/Blank.hx');
+			var arg:FunctionArg = switch (command.get('command')) {
+				case "ChangeBrush":
+					{
+						name: "ChangeBrush",
+						type: toComplex(macro {
+							change: "",
+							slot: 0
+						})
+					}
+
+				case "ChangeColor":
+					{
+						name: "ChangeColor",
+						type: toComplex(macro {
+							target: "",
+							change: ""
+						})
+					}
+
+				case "Scroll":
+					{
+						name: "Scroll",
+						type: toComplex(macro {
+							direction: "",
+							units: "",
+							quantity: 0,
+						})
+					}
+				case "MoveMask":
+					{
+						name: "MoveMask",
+						type: toComplex(macro {
+							target: "",
+							direction: "",
+							units: "",
+							quantity: 0
+						})
+					}
+				case _:
+					null;
+			}
+			if (arg != null) {
+				args.push(arg);
+			}
 			var buildField:Field = {
 				name: command.get('command'),
+				doc: documentation,
 				access: [APublic],
 				kind: FFun({
-					args: [],
+					args: args,
 					ret: (macro:Void)
 				}),
 				pos: Context.currentPos(),
 				meta: [
 					{
-						name: "@:luaDotMethod",
+						name: ":luaDotMethod",
 						pos: Context.currentPos()
 					}
 				]
