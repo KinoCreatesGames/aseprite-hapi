@@ -195,3 +195,7 @@ typedef MoveMaskT = {
 	units:String,
 	quantity:Int
 }
+
+typedef LayerOpacityT = {
+	opacity:Int
+}

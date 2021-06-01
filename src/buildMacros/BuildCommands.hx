@@ -112,6 +112,20 @@ macro function buildAppComands():Array<Field> {
 							save: true
 						})
 					}
+				case "LayerOpacity":
+					{
+						name: "LayerOpacity",
+						type: toComplex(macro {
+							opacity: 0
+						})
+					}
+				case "Zoom":
+					{
+						name: "Zoom",
+						type: toComplex(macro {
+							action: ""
+						})
+					}
 				case _:
 					null;
 			}
