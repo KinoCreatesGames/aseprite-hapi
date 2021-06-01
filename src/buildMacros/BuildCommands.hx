@@ -96,6 +96,22 @@ macro function buildAppComands():Array<Field> {
 							orientation: ""
 						})
 					}
+
+				case "AutocropSprite":
+					{
+						name: "AutocropSprite",
+						type: toComplex(macro {
+							byGrid: true
+						})
+					}
+				case "Screenshot":
+					{
+						name: "Screenshot",
+						type: toComplex(macro {
+							srgb: true,
+							save: true
+						})
+					}
 				case _:
 					null;
 			}
