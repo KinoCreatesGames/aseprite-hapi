@@ -88,6 +88,14 @@ macro function buildAppComands():Array<Field> {
 							quantity: 0
 						})
 					}
+
+				case "SymmetryMode":
+					{
+						name: "SymmetryMode",
+						type: toComplex(macro {
+							orientation: ""
+						})
+					}
 				case _:
 					null;
 			}

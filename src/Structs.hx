@@ -182,3 +182,16 @@ typedef ChangeColorT = {
 	target:String,
 	change:String
 }
+
+typedef ScrollT = {
+	direction:String,
+	units:String,
+	quantity:Int
+}
+
+typedef MoveMaskT = {
+	target:String,
+	direction:String,
+	units:String,
+	quantity:Int
+}
