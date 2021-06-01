@@ -1,5 +1,6 @@
 package buildMacros;
 
+import Structs.ZoomT;
 import sys.FileSystem;
 #if macro
 import Structs.ChangeColorT;
@@ -26,10 +27,6 @@ import sys.io.File;
 inline var FILE_PATH = 'aseprite-gui-link.txt';
 
 #if macro
-inline function toComplex(e:Expr) {
-	return Context.toComplexType(Context.typeof(e));
-}
-
 macro function buildAppComands():Array<Field> {
 	var buildFields = Context.getBuildFields();
 	trace('Running macro');
@@ -41,6 +38,7 @@ macro function buildAppComands():Array<Field> {
 		.firstElement()
 		.firstElement();
 
+	// TODO: Differentiate between different types
 	for (command in keyboardCommandsNode.elements()) {
 		// Create Build Field
 		if (command.exists('command') && !buildFields.exists((field) -> {
@@ -49,102 +47,112 @@ macro function buildAppComands():Array<Field> {
 			// Switch Case to determine struct to use as args
 			var args = [];
 			var documentation = null;
+
 			documentation = FileSystem.exists('res/${command.get('command')}.hx') ? File.getContent('res/${command.get('command')}.hx') : File.getContent('res/Blank.hx');
 			var arg:FunctionArg = switch (command.get('command')) {
 				case "ChangeBrush":
 					{
 						name: "ChangeBrush",
-						type: toComplex(macro {
-							change: "",
-							slot: 0
+						type: (macro:{
+							?change:String,
+							?slot:Int
 						})
 					}
 
 				case "ChangeColor":
 					{
 						name: "ChangeColor",
-						type: toComplex(macro {
-							target: "",
-							change: ""
+						type: (macro:{
+							target:String,
+							change:String
 						})
 					}
 
 				case "Scroll":
 					{
 						name: "Scroll",
-						type: toComplex(macro {
-							direction: "",
-							units: "",
-							quantity: 0,
+						type: (macro:{
+							direction:String,
+							units:String,
+							quantity:Int,
 						})
 					}
 				case "MoveMask":
 					{
 						name: "MoveMask",
-						type: toComplex(macro {
-							target: "",
-							direction: "",
-							units: "",
-							quantity: 0
+						type: (macro:{
+							target:String,
+							direction:String,
+							units:String,
+							quantity:Int
 						})
 					}
 
 				case "SymmetryMode":
 					{
 						name: "SymmetryMode",
-						type: toComplex(macro {
-							orientation: ""
+						type: (macro:{
+							orientation:String
 						})
 					}
 
 				case "AutocropSprite":
 					{
 						name: "AutocropSprite",
-						type: toComplex(macro {
-							byGrid: true
+						type: (macro:{
+							byGrid:Bool
 						})
 					}
 				case "Screenshot":
 					{
 						name: "Screenshot",
-						type: toComplex(macro {
-							srgb: true,
-							save: true
+						type: (macro:{
+							srgb:Bool,
+							?save:Bool
 						})
 					}
 				case "LayerOpacity":
 					{
 						name: "LayerOpacity",
-						type: toComplex(macro {
-							opacity: 0
-						})
+						type: macro:{
+							opacity:Int
+						}
 					}
 				case "Zoom":
 					{
 						name: "Zoom",
-						type: toComplex(macro {
-							action: ""
+						type: (macro:{
+							?action:String,
+
+							?percentage:Int
 						})
 					}
 				case "SetInkType":
 					{
 						name: "SetInkType",
-						type: toComplex(macro {
-							type: ""
+						type: (macro:{
+							type:String
 						})
 					}
 				case "SetColorSelector":
 					{
 						name: "SetColorSelector",
-						type: toComplex(macro {
-							type: ""
+						type: (macro:{
+							type:String
 						})
 					}
 				case "AddColor":
 					{
 						name: "AddColor",
-						type: toComplex(macro {
-							source: ""
+						type: (macro:{
+							source:String
+						})
+					}
+				case "SelectTile":
+					{
+						name: "SelectTile",
+						type: (macro:{
+							mode:String
 						})
 					}
 				case _:

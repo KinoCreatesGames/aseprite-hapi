@@ -10,7 +10,7 @@ function main() {
 		text: 'This is a warning from Haxe',
 	});
 	App.command.ExportSpriteSheet();
-
+	App.command.Zoom({action: "in"});
 	trace(test);
 	trace(color);
 	trace(point);

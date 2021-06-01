@@ -199,3 +199,8 @@ typedef MoveMaskT = {
 typedef LayerOpacityT = {
 	opacity:Int
 }
+
+typedef ZoomT = {
+	action:String,
+	percentage:Int
+}
