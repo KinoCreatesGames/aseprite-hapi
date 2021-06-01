@@ -126,6 +126,27 @@ macro function buildAppComands():Array<Field> {
 							action: ""
 						})
 					}
+				case "SetInkType":
+					{
+						name: "SetInkType",
+						type: toComplex(macro {
+							type: ""
+						})
+					}
+				case "SetColorSelector":
+					{
+						name: "SetColorSelector",
+						type: toComplex(macro {
+							type: ""
+						})
+					}
+				case "AddColor":
+					{
+						name: "AddColor",
+						type: toComplex(macro {
+							source: ""
+						})
+					}
 				case _:
 					null;
 			}
