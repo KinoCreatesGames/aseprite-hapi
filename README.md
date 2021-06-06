@@ -33,5 +33,7 @@ App.alert({
 App.command.ExportSpriteSheet();
 ```
 
+Note: When compiling, always compile in vanilla mode. `-D lua-vanilla`
+
 for any changes to the API, please raise a pull request.
 
