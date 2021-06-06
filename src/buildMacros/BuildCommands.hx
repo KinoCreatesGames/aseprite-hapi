@@ -117,10 +117,8 @@ var Docmap = [
 
 macro function buildAppComands():Array<Field> {
 	var buildFields = Context.getBuildFields();
-	trace('Running macro');
+
 	// Load Aseprite XML Data
-	var cwd = Sys.getCwd();
-	trace(cwd);
 	var result = Http.requestUrl(LINK);
 	var xmlContent = Xml.parse(result);
 	var keyboardCommandsNode = xmlContent.firstElement()
