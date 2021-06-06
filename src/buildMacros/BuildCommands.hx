@@ -31,7 +31,8 @@ macro function buildAppComands():Array<Field> {
 	var buildFields = Context.getBuildFields();
 	trace('Running macro');
 	// Load Aseprite XML Data
-
+	var cwd = Sys.getCwd();
+	trace(cwd);
 	var result = Http.requestUrl(LINK);
 	var xmlContent = Xml.parse(result);
 	var keyboardCommandsNode = xmlContent.firstElement()
@@ -48,7 +49,7 @@ macro function buildAppComands():Array<Field> {
 			var args = [];
 			var documentation = null;
 
-			documentation = FileSystem.exists('./res/${command.get('command')}.hx') ? File.getContent('./res/${command.get('command')}.hx') : File.getContent('./res/Blank.hx');
+			documentation = FileSystem.exists('${cwd}/res/${command.get('command')}.hx') ? File.getContent('${cwd}/res/${command.get('command')}.hx') : File.getContent('${cwd}/res/Blank.hx');
 			var arg:FunctionArg = switch (command.get('command')) {
 				case "ChangeBrush":
 					{
