@@ -11,6 +11,7 @@ function main() {
 	});
 	App.command.ExportSpriteSheet();
 	App.command.Zoom({action: "in"});
+
 	trace(test);
 	trace(color);
 	trace(point);
