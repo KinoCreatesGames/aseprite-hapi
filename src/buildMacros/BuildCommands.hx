@@ -48,7 +48,7 @@ macro function buildAppComands():Array<Field> {
 			var args = [];
 			var documentation = null;
 
-			documentation = FileSystem.exists('res/${command.get('command')}.hx') ? File.getContent('res/${command.get('command')}.hx') : File.getContent('res/Blank.hx');
+			documentation = FileSystem.exists('./res/${command.get('command')}.hx') ? File.getContent('./res/${command.get('command')}.hx') : File.getContent('./res/Blank.hx');
 			var arg:FunctionArg = switch (command.get('command')) {
 				case "ChangeBrush":
 					{
