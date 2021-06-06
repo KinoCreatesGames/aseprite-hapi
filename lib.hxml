@@ -1,7 +1,12 @@
 -cp src
 
 # This will be used for determining the lib for use as  a library
---macro include("")
+--macro include("objects")
+--macro include("buildMacros")
+--macro include("constants")
+--macro include("globals")
 
 
 --no-output
+
+--lua dummy.lua

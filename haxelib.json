@@ -1,12 +1,12 @@
 {
   "name": "Aseprite-Api",
-  "url" : "https://github.com/jasononeil/useless/",
+  "url" : "https://github.com/KinoCreatesGames/aseprite-hapi",
   "license": "MIT",
   "tags": ["Ase", "Aseprite", "pixelart", "gamedev"],
   "description": "A library for creating aseprite scripts in Haxe",
-  "version": "0.0.1",
+  "version": "0.9.0",
   "classPath": "src/",
-  "releasenote": "Initial release, for Aseprite",
+  "releasenote": "Initial release, for Aseprite Haxe API",
   "contributors": ["Kino"],
   "dependencies": {
   }
