@@ -1,6 +1,7 @@
 -cp src
 
 # This will be used for determining the lib for use as  a library
+--macro include("res")
 --macro include("objects")
 --macro include("buildMacros")
 --macro include("constants")

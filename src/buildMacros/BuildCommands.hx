@@ -24,15 +24,15 @@ import sys.io.File;
  * creating commands for the command class.
  * @return Array<Field>
  */
-inline var FILE_PATH = 'aseprite-gui-link.txt';
+inline var LINK = 'https://raw.githubusercontent.com/aseprite/aseprite/main/data/gui.xml';
 
 #if macro
 macro function buildAppComands():Array<Field> {
 	var buildFields = Context.getBuildFields();
 	trace('Running macro');
 	// Load Aseprite XML Data
-	var fileContents = File.getContent(FILE_PATH);
-	var result = Http.requestUrl(fileContents);
+
+	var result = Http.requestUrl(LINK);
 	var xmlContent = Xml.parse(result);
 	var keyboardCommandsNode = xmlContent.firstElement()
 		.firstElement()
