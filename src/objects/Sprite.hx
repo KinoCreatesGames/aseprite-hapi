@@ -128,8 +128,9 @@ extern class Sprite {
 	/**
 	 * Crops the sprite to the given dimensions.
 	 */
-	@:overload(function(rectangle:Rectangle):Void {})
-	public function crop(x:Int, y:Int, width:Int, height:Int):Void;
+	public overload function crop(rect:Rectangle):Void;
+
+	public overload function crop(x:Int, y:Int, width:Int, height:Int):Void;
 
 	/**
 	 * Saves the sprite to the given file and mark the sprite
@@ -163,8 +164,9 @@ extern class Sprite {
 	 * Sets the palette of the sprite.
 	 * @param palette 
 	 */
-	@:overload(function(paletteT:SetPalleteT):Void {})
-	public function setPalette(palette:Palette):Void;
+	public overload function setPalette(paletteT:SetPalleteT):Void;
+
+	public overload function setPalette(palette:Palette):Void;
 
 	public function assignColorSpace(colorSpace:ColorSpace):Void;
 
@@ -191,8 +193,9 @@ extern class Sprite {
 	/**
 	 * Delete a layer  from the sprite.
 	 */
-	@:overload(function(layerName:String):Void {})
-	public function deleteLayer(layer:Layer):Void;
+	public overload function deleteLayer(name:String):Void;
+
+	public overload function deleteLayer(layer:Layer):Void;
 
 	/**
 	 * Returns a new frame with a copy of the given
@@ -200,8 +203,9 @@ extern class Sprite {
 	 * @param frame
 	 * @return Frame
 	 */
-	@:overload(function(frameNumber:Int):Frame {})
-	public function newFrame(frame:Frame):Frame;
+	public overload function newFrame(frameNum:Int):Frame;
+
+	public overload function newFrame(frame:Frame):Frame;
 
 	/**
 	 * Returns a new empty frame.
@@ -219,15 +223,17 @@ extern class Sprite {
 	 * Creates a new cel on the specified layer at 
 	 		* that specified frame.
 	 */
-	@:overload(function(layer:Layer, frame:Frame, image:Image,
-		position:Point):Cel {})
-	public function newCel(layer:Layer, frame:Frame):Cel;
+	public overload function newCel(layer:Layer, frame:Frame, image:Image,
+		position:Point):Cel;
+
+	public overload function newCel(layer:Layer, frame:Frame):Cel;
 
 	/**
 	 * Deletes a cel from the specified layer or the cel passed in.
 	 */
-	@:overload(function(layer:Layer, frame:Frame):Void {})
-	public function deleteCel(cel:Cel):Void;
+	public overload function deleteCel(layer:Layer, frame:Frame):Void;
+
+	public overload function deleteCel(cel:Cel):Void;
 
 	/**
 	 * Creates a new tag at the current frame to the specified frame.
