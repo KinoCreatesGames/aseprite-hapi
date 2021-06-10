@@ -7,6 +7,7 @@ import constants.RangeType.RangeT;
  */
 @:native('Range')
 extern class Range {
+	public function new();
 	@:native('type')
 	public var rangeType:RangeT;
 
@@ -57,9 +58,10 @@ extern class Range {
 	 * Returns true if the given object is inside the selected
 	 * range.
 	 */
-	@:overload(function(frame:Frame):Bool {})
-	@:overload(function(cel:Cel):Bool {})
-	public function contains(layer:Layer):Bool;
+	public overload function contains(frame:Frame):Bool;
+
+	public overload function contains(cel:Cel):Bool;
+	public overload function contains(layer:Layer):Bool;
 
 	/**
 	 * Returns true if the given color index is selected

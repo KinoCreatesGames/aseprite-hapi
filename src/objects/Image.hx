@@ -57,21 +57,23 @@ extern class Image {
 	 */
 	public function isPlain(color:EitherType<Color, IntColor>):Bool;
 
-	@:overload(function(rectangle:Rectangle):Color {})
-	public function pixels():Iterator<PixelColor>;
+	public overload function pixels(rec:Rectangle):Color;
+	public overload function pixels():Iterator<PixelColor>;
 
 	/**
 	 * Saves the image as a sprite with the given filename.
 	 * @param fileName 
 	 */
-	@:overload(function(imgSaveT:ImgSaveAsT):Void {})
-	public function saveAs(fileName:String):Void;
+	public overload function saveAs(imgSaveT:ImgSaveAsT):Void;
+
+	public overload function saveAs(fileName:String):Void;
 
 	/**
 	 * Resizes the image. Pivot point by default is (0, 0)
 	 * @param width 
 	 * @param height 
 	 */
-	@:overload(function(imgResizeT:ImgResizeT):Void {})
-	public function resize(width:Int, height:Int):Void;
+	public overload function resize(imgResize:ImgResizeT):Void;
+
+	public overload function resize(width:Int, height:Int):Void;
 }
