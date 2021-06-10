@@ -1,3 +1,4 @@
+import objects.Size;
 import objects.Point;
 import App;
 
@@ -11,7 +12,7 @@ function main() {
 	});
 	App.command.ExportSpriteSheet();
 	App.command.Zoom({action: "in"});
-
+	App.activeSprite.resize(new Size(10, 10));
 	trace(test);
 	trace(color);
 	trace(point);

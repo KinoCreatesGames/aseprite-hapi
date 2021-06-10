@@ -7,7 +7,7 @@
   "version": "0.9.1",
   "classPath": "src/",
   "releasenote": "Initial release, for Aseprite Haxe API",
-  "contributors": ["EISKino"],
+  "contributors": ["Kino"],
   "dependencies": {
   }
 }

@@ -121,8 +121,9 @@ extern class Sprite {
 	 * Resizes the sprite and all frames / cels to the
 	 		* given dimensions.
 	 */
-	@:overload(function(size:Size):Void {})
-	public function resize(width:Int, height:Int):Void;
+	public overload function resize(size:Size):Void;
+
+	public overload function resize(width:Int, height:Int):Void;
 
 	/**
 	 * Crops the sprite to the given dimensions.
