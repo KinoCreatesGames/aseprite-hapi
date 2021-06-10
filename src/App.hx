@@ -146,8 +146,10 @@ extern class App {
 	 		* Returns an integer with the selected button.
 	 */
 	@:luaDotMethod
-	@:overload(function(alert:AlertMsgT):Void {})
-	public static function alert(alertMsg:String):Void;
+	public overload static function alert(alert:AlertMsgT):Void;
+
+	@:luaDotMethod
+	public overload static function alert(alertMsg:String):Void;
 
 	/**
 	 * Opens a new sprite loading it from the given filename.

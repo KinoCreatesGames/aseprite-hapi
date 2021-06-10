@@ -94,8 +94,9 @@ extern class Dialog {
 	 		* The next widget should be put in the new row.
 	 		* Using the always = true, aDialogs joining widgets of the same type.
 	 */
-	@:overload(function(newRowT:NewRowT):Dialog {})
-	public function newrow():Dialog;
+	public overload function newrow(newRowT:NewRowT):Dialog;
+
+	public overload function newrow():Dialog;
 
 	/**
 	 * Creates a new entry field for entering numbers.

@@ -46,6 +46,20 @@ extern class Selection {
 	 */
 	public function selectAll():Void;
 
-	@:overload(function(x:Int, y:Int):Bool {})
-	public function contains(point:Point):Bool;
+	/**
+	 * Checks if the point or the 
+	 * or the x, y values are within the selection.
+	 * @param x 
+	 * @param y 
+	 * @return Bool
+	 */
+	public overload function contains(x:Int, y:Int):Bool;
+
+	/**
+	 * Checks if the point 
+	 * are within the selection.
+	 * @param point  
+	 * @return Bool
+	 */
+	public overload function contains(point:Point):Bool;
 }

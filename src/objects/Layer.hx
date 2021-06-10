@@ -106,7 +106,7 @@ extern class Layer {
 	 * @param frameNumber 
 	 * @return Cel
 	 */
-	overload public function cel(frameNumber:Int):Cel;
+	public overload function cel(frameNumber:Int):Cel;
 
-	overload public function cel(frame:Frame):Cel;
+	public overload function cel(frame:Frame):Cel;
 }
