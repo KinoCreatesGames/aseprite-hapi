@@ -1,5 +1,6 @@
 package objects;
 
+import constants.BlendMode.BMode;
 import haxe.extern.EitherType;
 
 @:native('Layer')
@@ -11,6 +12,11 @@ extern class Layer {
 	 * Sprite the layer is attached to.
 	 */
 	public var sprite:Sprite;
+
+	/**
+	 * Gets or sets the layer blend mode.
+	 */
+	public var blendMode:BMode;
 
 	/**
 	 * Name of the current layer.
