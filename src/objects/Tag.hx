@@ -7,6 +7,8 @@ import constants.AniDir;
  */
 @:native('Tag')
 extern class Tag {
+	public function new();
+
 	/**
 	 * Returns the sprite to which this tag belongs.
 	 */

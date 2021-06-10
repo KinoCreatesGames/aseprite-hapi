@@ -247,8 +247,9 @@ extern class Sprite {
 	 * Deletes a specified tag from the sprite.
 	 		* @param Tag
 	 */
-	@:overload(function(tagName:String):Void {})
-	public function deleteTag(tag:Tag):Void;
+	public overload function deleteTag(tagName:String):Void;
+
+	public overload function deleteTag(tag:Tag):Void;
 
 	/**
 	 * Creates a new slice  on the 
@@ -262,8 +263,9 @@ extern class Sprite {
 	 * Deletes a slice from the sprite.
 	 		* @param slice
 	 */
-	@:overload(function(sliceName:String):Void {})
-	public function deleteSlice(slice:Slice):Void;
+	public overload function deleteSlice(sliceName:String):Void;
+
+	public overload function deleteSlice(slice:Slice):Void;
 
 	/**
 	 * Flattens all layers of the sprite into one layer.
