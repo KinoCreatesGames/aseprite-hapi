@@ -56,6 +56,12 @@ extern class Sprite {
 	public var filename:String;
 
 	/**
+	 * Returns true if the sprite is modified compared to the latest
+	 * saved state on disk.
+	 */
+	public var isModified:Bool;
+
+	/**
 	 * The color mode of the sprite.
 	 */
 	public var colorMode:ColorMode;
@@ -111,6 +117,13 @@ extern class Sprite {
 	 * the transparent color in `transparent layers on indexed sprites`.
 	 */
 	public var transparentColor:Int;
+
+	/**
+	 * Gets or sets the user-defined color of this sprite.
+	 * This color is used to display the tab in the main window of
+	 * this sprite.
+	 */
+	public var color:Int;
 
 	@:overload(function(spriteT:SpriteT):Sprite {})
 	@:overload(function(spec:ImageSpec):Sprite {})
