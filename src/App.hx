@@ -37,43 +37,43 @@ extern class App {
 	/**
 	 * Active cel object in the app.
 	 */
-	public static var activeCel:Cel;
+	public static var cel:Cel;
 
 	/**
 	 * Active frame in the application. 
 	 */
-	public static var activeFrame:Frame;
+	public static var frame:Frame;
 
 	/**
 	 * Active Image in the application.
 	 */
-	public static var activeImage:Image;
+	public static var image:Image;
 
 	/**
 	 * Active Layer in the application. 
 	 */
-	public static var activeLayer:Layer;
+	public static var layer:Layer;
 
 	/**
 	 * Active sprite in the application.
 	 */
-	public static var activeSprite:Sprite;
+	public static var sprite:Sprite;
 
 	/**
 	 * Active tag in the application.
 	 * This is located in the active frame.
 	 */
-	public static var activeTag:Tag;
+	public static var tag:Tag;
 
 	/**
 	 * Active tool; a tool selected in the tool bar.
 	 */
-	public static var activeTool:Tool;
+	public static var tool:Tool;
 
 	/**
 	 * Active brush; a brush selected in the context bar.
 	 */
-	public static var activeBrush:Brush;
+	public static var brush:Brush;
 
 	/**
 	 * Pixel color namespace; contains internal functions
