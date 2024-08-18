@@ -21,4 +21,9 @@ extern class AniDir {
 	 * Animate the sprite back and forth.
 	 */
 	public static var PING_PONG:AnimDir;
+
+	/**
+	 * Animate the sprite back and forth in the reverse direction.
+	 */
+	public static var PING_PONG_REVERSE:AnimDir;
 }
