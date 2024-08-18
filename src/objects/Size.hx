@@ -17,7 +17,7 @@ extern class Size {
 
 	/**
 	 * Creates a new size based on the width, height. 
-	    * Overload creates a new size based on size.
+	 		* Overload creates a new size based on size.
 	 * @param width 
 	 * @param height 
 	 */

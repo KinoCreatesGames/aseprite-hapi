@@ -141,7 +141,7 @@ macro function buildAppComands():Array<Field> {
 				case "ChangeBrush":
 					{
 						name: "ChangeBrush",
-						type: (macro:{
+						type: (macro :{
 							?change:String,
 							?slot:Int
 						})
@@ -150,7 +150,7 @@ macro function buildAppComands():Array<Field> {
 				case "ChangeColor":
 					{
 						name: "ChangeColor",
-						type: (macro:{
+						type: (macro :{
 							target:String,
 							change:String
 						})
@@ -159,7 +159,7 @@ macro function buildAppComands():Array<Field> {
 				case "Scroll":
 					{
 						name: "Scroll",
-						type: (macro:{
+						type: (macro :{
 							direction:String,
 							units:String,
 							quantity:Int,
@@ -168,7 +168,7 @@ macro function buildAppComands():Array<Field> {
 				case "MoveMask":
 					{
 						name: "MoveMask",
-						type: (macro:{
+						type: (macro :{
 							target:String,
 							direction:String,
 							units:String,
@@ -179,7 +179,7 @@ macro function buildAppComands():Array<Field> {
 				case "SymmetryMode":
 					{
 						name: "SymmetryMode",
-						type: (macro:{
+						type: (macro :{
 							orientation:String
 						})
 					}
@@ -187,14 +187,14 @@ macro function buildAppComands():Array<Field> {
 				case "AutocropSprite":
 					{
 						name: "AutocropSprite",
-						type: (macro:{
+						type: (macro :{
 							byGrid:Bool
 						})
 					}
 				case "Screenshot":
 					{
 						name: "Screenshot",
-						type: (macro:{
+						type: (macro :{
 							srgb:Bool,
 							?save:Bool
 						})
@@ -202,14 +202,14 @@ macro function buildAppComands():Array<Field> {
 				case "LayerOpacity":
 					{
 						name: "LayerOpacity",
-						type: macro:{
+						type: macro :{
 							opacity:Int
 						}
 					}
 				case "Zoom":
 					{
 						name: "Zoom",
-						type: (macro:{
+						type: (macro :{
 							?action:String,
 
 							?percentage:Int
@@ -218,28 +218,28 @@ macro function buildAppComands():Array<Field> {
 				case "SetInkType":
 					{
 						name: "SetInkType",
-						type: (macro:{
+						type: (macro :{
 							type:String
 						})
 					}
 				case "SetColorSelector":
 					{
 						name: "SetColorSelector",
-						type: (macro:{
+						type: (macro :{
 							type:String
 						})
 					}
 				case "AddColor":
 					{
 						name: "AddColor",
-						type: (macro:{
+						type: (macro :{
 							source:String
 						})
 					}
 				case "SelectTile":
 					{
 						name: "SelectTile",
-						type: (macro:{
+						type: (macro :{
 							mode:String
 						})
 					}
@@ -255,7 +255,7 @@ macro function buildAppComands():Array<Field> {
 				access: [APublic],
 				kind: FFun({
 					args: args,
-					ret: (macro:Void)
+					ret: (macro :Void)
 				}),
 				pos: Context.currentPos(),
 				meta: [
