@@ -70,6 +70,10 @@ extern class Image {
 	 *
 	 * Warning: This method doesn't create undo information, you should
 	 * clone the image and then patch it to get proper undo/redo information.
+	 *
+	 * @param x 
+	 * @param y 
+	 * @param color 
 	 */
 	public function drawPixel(x:Int, y:Int, color:Color):Void;
 
@@ -83,8 +87,12 @@ extern class Image {
 	 * `Cel.bounds` and `Cel.position`:
 	 *
 	 * https://www.aseprite.org/api/image/getpixel.gif
+	 *
+	 * @param x 
+	 * @param y 
+	 * @return Int
 	 */
-	public function getPixel(x:Int, y:Int, color:Color):Void;
+	public function getPixel(x:Int, y:Int):Int;
 
 	/**
 	 * Copies/draws the given sourceImage image over destinationImage.
