@@ -87,17 +87,17 @@ extern class Image {
 	public function getPixel(x:Int, y:Int, color:Color):Void;
 
 	/**
-	 * Returns a integer pixel value for the given xy-coordinate related
-	 * to the "Image" itself. The returned value will depend on the color
-	 * mode of the image.
-	 * 
-	 * Do NOT confuse with the absolute xy-coordinate in the Canvas. In the
-	 * following example, we show the differences between `getPixel()`,
-	 * `Cel.bounds` and `Cel.position`:
+	 * Copies/draws the given sourceImage image over destinationImage.
+	 * If position is a point, it will draw the sourceImage in the given
+	 * position (Point(0, 0) as default). opacity is an integer (0 to 255)
+	 * that defines a general opacity level of the sourceImage (255 by default).
+	 * blendMode is the blending method to compose the sourceImage over the
+	 * destinationImage (BlendMode.NORMAL as default).
 	 *
-	 * https://www.aseprite.org/api/image/getpixel.gif
+	 * Warning: If the image is associated with a Cel, this method generates undo
+	 * information, so you could use it as an individual operation or in a transaction.
 	 *
-	 * @param sourceSprite 
+	 * @param sourceImage 
 	 * @param position 
 	 * @param opacity 
 	 * @param blendMode
